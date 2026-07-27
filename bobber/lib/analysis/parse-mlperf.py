@@ -295,7 +295,7 @@ def find_num_nodes(logfile: str) -> int:
         return 1
     n_tasks = re.findall(r'ntasks=\d+', clear_cache_command[0])
     num_nodes = n_tasks[0].replace('ntasks=', '')
-    return num_nodes
+    return int(num_nodes)
 
 
 def find_filesystem_test_path(logfile: str) -> str:
