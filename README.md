@@ -315,7 +315,7 @@ bobber run-nccl --iterations 2 --sweep --system dgx-2 /home/user/logs dgx-2-1,dg
 ## Run FIO Bandwidth test
 ```bash
 bobber run-stg-bw --iterations 2 --sweep --system dgx-a100-single /home/user/logs test-machine-1,test-machine-2
-bobber run-stg-bw --iterations 2 --sweep --system dgx-a100-dual /home/user/logstest-machine-1,test-machine-2
+bobber run-stg-bw --iterations 2 --sweep --system dgx-a100-dual /home/user/logs test-machine-1,test-machine-2
 bobber run-stg-bw --iterations 2 --sweep --system dgx-2 /home/user/logs dgx-2-1,dgx-2-2
 ```
 
