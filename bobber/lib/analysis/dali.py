@@ -207,7 +207,12 @@ def _result_parsing(log_contents: str, systems: int, image_results: dict,
         # be off, and one node will showcase the 2nd test pass before all nodes
         # have finished the first. To accomodate for this, the lowest N results
         # are assumed to be the first test pass and are dropped.
-        all_speeds = sorted(all_speeds)[systems:]
+        all_speeds = sorted(all_speeds)
+        if len(all_speeds) <= systems:
+            print(f'Warning: Not enough DALI speed samples in {log_file}; '
+                  'skipping...')
+            return {}
+        all_speeds = all_speeds[systems:]
         image_type_match[num] = _update_results(image_type_match[num],
                                                 all_speeds)
 
