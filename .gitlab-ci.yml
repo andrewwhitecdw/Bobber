@@ -28,9 +28,9 @@ docker_build:
         - python setup.py bdist_wheel sdist
         - pip install dist/nvidia_bobber-*-none-any.whl
         - echo "Building latest Bobber image"
-        - bobber build
+        - bobber build | tee /tmp/bobber_build.log
         # Capture the build ID during the image build process and ensure it is listed in the system
-        - docker images | grep `bobber build | grep "Successfully built" | awk '{print $3}'`
+        - docker images | grep `grep "Successfully built" /tmp/bobber_build.log | awk '{print $3}'`
 
 test:
     stage: test
