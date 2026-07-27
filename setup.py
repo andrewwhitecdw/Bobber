@@ -10,6 +10,7 @@ setup(
     version=__version__,
     description='Containerized testing of system components that impact AI workload performance',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     packages=['bobber',
               'bobber/lib',
               'bobber/lib/analysis',
@@ -32,7 +33,7 @@ setup(
     },
     install_requires=[
         'docker >= 4.3.1',
-        'numpy >= 1.9.5',
+        'numpy >= 1.19.5',
         'pyyaml >= 5.4.0',
         'tabulate >= 0.8.7',
         'six>=1.15.0'
