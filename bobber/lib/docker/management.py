@@ -305,4 +305,4 @@ class DockerManager:
         except docker.errors.NotFound:
             return False
         else:
-            return True
+            return bobber.status == 'running'
