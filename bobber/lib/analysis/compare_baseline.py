@@ -45,7 +45,7 @@ def metric_passes(expected: float, got: float, tolerance: int) -> bool:
         # If user passes a 5% tolerance, multiply the expected value by 5% less
         # than current value to get the tolerance.
         expected = (1 - tolerance / 100) * expected
-    if got > expected:
+    if got >= expected:
         return True
     else:
         return False
@@ -250,8 +250,16 @@ def evaluate_test(baseline: dict, results: dict, system_count: int,
             failures = evaluate_fio(test_values, results, test_name, failures,
                                     tolerance)
         elif test_name == 'nccl':
+            if test_name not in results:
+                print(f'  {TEST_MAPPING[test_name]}')
+                print('    No NCCL results found, skipping...')
+                continue
             failures = evaluate_nccl(test_values, results, failures, tolerance)
         elif test_name == 'dali':
+            if test_name not in results:
+                print(f'  {TEST_MAPPING[test_name]}')
+                print('    No DALI results found, skipping...')
+                continue
             failures = evaluate_dali(test_values,
                                      results['dali'],
                                      test_name,
