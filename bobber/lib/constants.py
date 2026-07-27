@@ -38,15 +38,15 @@ DGX_A100_DUAL = {
 
 DGX_2 = {
     'gpus': 16,
-    'bw-threads': 16,
+    'bw_threads': 16,
     'stg_125k_threads': 16,
-    'batch-size-sm': 150,
-    'batch-size-lg': 75,
-    'iops-threads': 80,
-    'ssh-iface': 'enp6s0',
-    'nccl-ib-hcas':
+    'batch_size_sm': 150,
+    'batch_size_lg': 75,
+    'iops_threads': 80,
+    'ssh_iface': 'enp6s0',
+    'nccl_ib_hcas':
     'mlx5_13,mlx5_15,mlx5_17,mlx5_19,mlx5_3,mlx5_5,mlx5_7,mlx5_9',
-    'nccl-max': 1
+    'nccl_max': 1
 }
 
 SYSTEMS = {
