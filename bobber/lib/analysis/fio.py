@@ -21,7 +21,7 @@ def clean_iops(iops: str) -> float:
     float
         Returns a ``float`` of the final IOPS value in operations/second.
     """
-    number = float(re.findall(r'\d+', iops)[0])
+    number = float(re.findall(r'[-+]?\d+(?:\.\d+)?', iops)[0])
     if 'G' in iops:
         ops_per_second = number * 1e9
     elif 'M' in iops:
@@ -249,8 +249,12 @@ def parse_fio_iops_file(log_files: list, systems: int,
                                                         write_params)
         write_iops = fio_iops_results(log_contents, systems, 'write: IOPS=.*',
                                       log)
+        if write_iops == []:
+            continue
         read_iops = fio_iops_results(log_contents, systems, 'read: IOPS=.*',
                                      log)
+        if read_iops == []:
+            continue
         write_system_results[systems].append(sum(write_iops))
         read_system_results[systems].append(sum(read_iops))
     return read_system_results, write_system_results, read_params, write_params
