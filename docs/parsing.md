@@ -39,7 +39,6 @@ results.
   * The lowest N-results in DALI tests are dropped for N-nodes. These results
 are part of a known warm-up period for DALI and do not indicate actual
 performance.
-  * The scale 
 
 ## Parsing MLPerf
 This repository includes a Python package that can quickly and easily parse
