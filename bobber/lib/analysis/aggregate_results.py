@@ -304,7 +304,7 @@ DALI TFRecord 3840x2160{self._dali_results_print('3840x2160 tfrecord')}
             '125k_bandwidth': {
                 'read': self._average_125k_read_bw(),
                 'write': self._average_125k_write_bw(),
-                'unit': 'operations/second',
+                'unit': 'bytes/second',
                 'parameters': {
                     'read': self._125k_read_bw_params,
                     'write': self._125k_write_bw_params
