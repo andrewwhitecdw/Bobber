@@ -35,7 +35,7 @@ def num_systems(log: str) -> int:
         systems = re.findall(r'systems_\d+_', log)
         systems = re.findall(r'\d+', systems[0])
         return int(systems[0])
-    except ValueError:
+    except (IndexError, ValueError):
         return None
 
 
@@ -140,6 +140,7 @@ def _convert_to_bytes(value: str) -> float:
         return number * 1024
     elif 'k' in value.lower():
         return number * 1e3
+    raise ValueError(f'Unknown unit in value: {value}')
 
 
 def _fio_command_parse(command: str) -> dict:
@@ -244,7 +245,7 @@ def fio_command_details(log_contents: str, old_reads: dict,
     """
     commands = re.findall(r'/usr/bin/fio --rw.*', log_contents)
     if len(commands) < 2:
-        raise ValueError(f'FIO command not found in {log} file!')
+        raise ValueError('FIO command not found in log contents!')
 
     for command in commands:
         if '--rw=read' in command:
