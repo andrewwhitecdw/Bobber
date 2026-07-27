@@ -366,15 +366,12 @@ def main(directory: str,
     total_systems = 0
     systems = []
 
+    all_systems = set()
     for result in [read_bw, read_iops, read_125k_bw, max_bw, dali_results,
                    metadata]:
-        try:
-            total_systems = max(result.keys())
-            systems = sorted(result.keys())
-        except ValueError:
-            continue
-        else:
-            break
+        all_systems.update(result.keys())
+    total_systems = max(all_systems) if all_systems else 0
+    systems = sorted(all_systems)
 
     for system_num in systems:
         aggregate = AggregateResults(read_bw,
