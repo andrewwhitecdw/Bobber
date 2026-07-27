@@ -85,6 +85,8 @@ def scale(values: list) -> float:
     x = np.array(range(1, len(values) + 1))
     y = np.array(values)
     slope, _ = np.polyfit(x, y, 1)
+    if values[0] == 0:
+        return 0.0
     return slope / values[0] + 1.0
 
 
