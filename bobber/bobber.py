@@ -288,7 +288,7 @@ def load_from_config(config_path: str) -> Namespace:
         pass.
     """
     with open(config_path, 'r') as config:
-        settings = json.loads(config.read())
+        settings = json.load(config)
         return Namespace(**settings)
 
 
