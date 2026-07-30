@@ -306,7 +306,7 @@ def save_config(args: Namespace) -> NoReturn:
     """
     settings = vars(args)
     with open(f'{args.log_path}/command_parameters.json', 'w') as fp:
-        fp.write(json.dumps(settings))
+        json.dump(settings, fp)
 
 
 def load_settings(args: Namespace) -> Namespace:
