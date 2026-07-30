@@ -292,7 +292,7 @@ def load_from_config(config_path: str) -> Namespace:
         return Namespace(**settings)
 
 
-def save_config(args: Namespace) -> NoReturn:
+def save_config(args: Namespace) -> None:
     """
     Save the settings as JSON.
 
