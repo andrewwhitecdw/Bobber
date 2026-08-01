@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: MIT
 from functools import wraps
-from typing import NoReturn
 
 
 def average_decorator(func: 'method') -> float:
@@ -113,7 +112,7 @@ class AggregateResults:
                  bytes_sizes: dict,
                  dali_results: dict,
                  metadata: dict,
-                 systems: int) -> NoReturn:
+                 systems: int) -> None:
         self._read_bw = read_bw
         self._read_bw_params = read_bw_params
         self._read_iops = read_iops
