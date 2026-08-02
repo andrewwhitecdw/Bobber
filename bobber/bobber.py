@@ -393,7 +393,7 @@ def execute_command(args: Namespace, version: str) -> NoReturn:
         run_tests.test_selector(args, version_underscore)
 
 
-def main() -> None:
+def main() -> NoReturn:
     """
     Launch a test with the Bobber framework.
 
