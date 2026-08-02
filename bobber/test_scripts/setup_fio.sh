@@ -35,7 +35,7 @@ stop_servers () {
         echo "Killing Server on $N"
 
 	    if [ "$N" == "localhost" ]; then
-	        killall fio
+	        killall fio &
         else
             ssh ${SSHOPTS} $N killall fio > /dev/null 2>&1 &
 	    fi
