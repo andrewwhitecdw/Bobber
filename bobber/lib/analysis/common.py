@@ -35,7 +35,7 @@ def num_systems(log: str) -> int:
         systems = re.findall(r'systems_\d+_', log)
         systems = re.findall(r'\d+', systems[0])
         return int(systems[0])
-    except ValueError:
+    except (IndexError, ValueError):
         return None
 
 
