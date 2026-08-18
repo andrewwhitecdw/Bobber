@@ -244,7 +244,7 @@ def fio_command_details(log_contents: str, old_reads: dict,
     """
     commands = re.findall(r'/usr/bin/fio --rw.*', log_contents)
     if len(commands) < 2:
-        raise ValueError(f'FIO command not found in {log} file!')
+        raise ValueError('FIO command not found in the log file!')
 
     for command in commands:
         if '--rw=read' in command:
