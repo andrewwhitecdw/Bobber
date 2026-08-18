@@ -18,7 +18,7 @@ drop_caches () {
 		declare -a pidlist
 		unset pidlist
 		for N in ${FIO_NODELIST}; do
-            ssh $N $SSHOPTS /sbin/sysctl vm.drop_caches=3 &
+            ssh ${SSHOPTS} $N /sbin/sysctl vm.drop_caches=3 &
 		    p=$!
 		    pidlist=(${pidlist[@]} $p)
         done
@@ -30,12 +30,12 @@ drop_caches () {
 stop_servers () {
 
     declare -a pidlist
-    pidlist=""
+    pidlist=()
     for N in $FIO_NODELIST; do
         echo "Killing Server on $N"
 
 	    if [ "$N" == "localhost" ]; then
-	        killall fio
+	        killall fio &
         else
             ssh ${SSHOPTS} $N killall fio > /dev/null 2>&1 &
 	    fi
