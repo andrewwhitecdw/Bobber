@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: MIT
 from functools import wraps
-from typing import NoReturn
 
 
 def average_decorator(func: 'method') -> float:
@@ -113,7 +112,7 @@ class AggregateResults:
                  bytes_sizes: dict,
                  dali_results: dict,
                  metadata: dict,
-                 systems: int) -> NoReturn:
+                 systems: int) -> None:
         self._read_bw = read_bw
         self._read_bw_params = read_bw_params
         self._read_iops = read_iops
@@ -304,7 +303,7 @@ DALI TFRecord 3840x2160{self._dali_results_print('3840x2160 tfrecord')}
             '125k_bandwidth': {
                 'read': self._average_125k_read_bw(),
                 'write': self._average_125k_write_bw(),
-                'unit': 'operations/second',
+                'unit': 'bytes/second',
                 'parameters': {
                     'read': self._125k_read_bw_params,
                     'write': self._125k_write_bw_params
