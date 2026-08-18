@@ -82,6 +82,10 @@ def scale(values: list) -> float:
     float
         Returns a ``float`` of the scaling factor.
     """
+    if values[0] == 0:
+        raise ValueError(
+            "Cannot compute relative scale when the first value is zero"
+        )
     x = np.array(range(1, len(values) + 1))
     y = np.array(values)
     slope, _ = np.polyfit(x, y, 1)
