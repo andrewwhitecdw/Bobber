@@ -57,7 +57,7 @@ def unique_hosts(hosts: str) -> str:
         identical.
     """
     host_list = hosts.split(',')
-    if len(host_list) != len(list(set(host_list))):
+    if len(host_list) != len(set(host_list)):
         raise ArgumentTypeError('Hosts must be unique')
     return hosts
 
