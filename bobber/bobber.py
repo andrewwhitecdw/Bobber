@@ -358,7 +358,7 @@ def load_settings(args: Namespace) -> Namespace:
     return args
 
 
-def execute_command(args: Namespace, version: str) -> NoReturn:
+def execute_command(args: Namespace, version: str) -> None:
     """
     Execute a specific command from Bobber.
 
