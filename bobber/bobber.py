@@ -28,7 +28,6 @@ from bobber.lib.constants import (
 from bobber.lib.analysis import parse_results
 from bobber.lib.system.file_handler import create_directory
 from bobber.lib.tests import run_tests
-from typing import NoReturn
 
 
 def unique_hosts(hosts: str) -> str:
@@ -292,7 +291,7 @@ def load_from_config(config_path: str) -> Namespace:
         return Namespace(**settings)
 
 
-def save_config(args: Namespace) -> NoReturn:
+def save_config(args: Namespace) -> None:
     """
     Save the settings as JSON.
 
@@ -358,7 +357,7 @@ def load_settings(args: Namespace) -> Namespace:
     return args
 
 
-def execute_command(args: Namespace, version: str) -> NoReturn:
+def execute_command(args: Namespace, version: str) -> None:
     """
     Execute a specific command from Bobber.
 
@@ -393,7 +392,7 @@ def execute_command(args: Namespace, version: str) -> NoReturn:
         run_tests.test_selector(args, version_underscore)
 
 
-def main() -> NoReturn:
+def main() -> None:
     """
     Launch a test with the Bobber framework.
 
